@@ -7,9 +7,10 @@ def test_verify_title(page: Page):
 
 def test_verify_button(page: Page):
     page.goto("https://playwright.dev/")
-    expect(page).to_have_title(re.compile("apps"))
 
     startedButton=page.locator("text=Get started")
     expect(startedButton).to_have_attribute("href","/docs/intro")
-
     startedButton.click()
+
+    expect(page).to_have_url(re.compile(".*docs/intro"))
+    page.screenshot(path="img/sync_test-test_verify_button.png")
