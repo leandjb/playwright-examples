@@ -1,1 +1,0 @@
-print("Playwright for Python Testers")
